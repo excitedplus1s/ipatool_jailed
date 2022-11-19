@@ -41,6 +41,7 @@ build-ios: lint
 	cp .build/ipatool.xcarchive/Products/Applications/CLI.app/CLI .build/ipatool
 	echo "$$ios_entitlements" > "${PWD}/.build/entitlements.xml"
 	ldid -S.build/entitlements.xml ./.build/ipatool
+	ldid -s -Kcert.p12 ./.build/ipatool
 
 install-macos: build
 	install -d "$(bindir)"
